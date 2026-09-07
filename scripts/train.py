@@ -36,6 +36,7 @@ from yolov2.utils import (
     LabelSmoothingBCE
 )
 from yolov2.utils.metrics import ConfusionMatrix, DetectionMetrics
+from yolov2.runtime import command
 from yolov2.utils.plots import (
     TrainingPlotter,
     plot_detection_samples,
@@ -402,6 +403,7 @@ def validate(
     return metrics, sample_images, sample_preds, sample_targets
 
 
+@command("train")
 def main():
     """主函数"""
     args = parse_args()
@@ -832,4 +834,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())
